@@ -1,0 +1,243 @@
+/* fonts */
+@import url('https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;700&family=Roboto+Mono:wght@400;500;700&display=swap');
+/* tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+img {
+  max-width: 100%;
+}
+
+ul {
+  list-style-type: none;
+}
+
+/* utility */
+
+/* elements styling */
+/* ham btn*/
+.ham-btn {
+  display: none;
+  width: 24px;
+  height: 18px;
+  background-color: transparent;
+  border: none;
+  padding: 4px;
+  margin-bottom: 4px;
+}
+
+.open-ham,
+.close-ham {
+  position: relative;
+  top: 0;
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: rgb(100, 97, 97);
+  z-index: 999;
+}
+
+.open-ham::after,
+.open-ham::before,
+.close-ham::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: rgb(100, 97, 97);
+  transition: .3s;
+}
+
+.open-ham::after,
+.close-ham::after {
+  top: 5px;
+}
+
+.open-ham::before {
+  top: 10px;
+}
+
+/* close */
+
+
+.close-ham {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.close-ham::after {
+  top: 0;
+  transform: rotate(-90deg);
+}
+
+.close .ham::after,
+.close .ham {
+  top: 5px;
+}
+
+/* body */
+body {
+  font-family: 'Kumbh Sans', sans-serif;
+}
+
+
+.avatar-img {
+  cursor: pointer;
+  border-radius: 50%;
+  transition: .3s;
+}
+
+.avatar-img:hover {
+  border: 1px solid orangered;
+}
+
+nav ul li {
+  cursor: pointer;
+  position: relative;
+  overflow-x: hidden;
+  width: fit-content;
+}
+
+nav ul li::after {
+  content: '';
+  position: absolute;
+  left: -100%;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: rgb(255, 182, 47);
+  transition: .3s;
+}
+
+nav ul li:hover::after {
+  left: 0;
+}
+
+/* btn control  bg-white p-5 rounded-full absolute top-1/2 left-2 -translate-y-1/2 lg:hidden*/
+.btn-control {
+  display: none;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #fff;
+  border-radius: 50%;
+  aspect-ratio: 1;
+  padding: .3rem .6rem;
+}
+
+.btn-control-left {
+  left: 1rem;
+}
+
+.btn-control-right {
+  right: 1rem;
+}
+
+.light-box {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: hsla(0, 0%, 0%, .75);
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hamburger {
+  position: relative;
+  padding: 1rem;
+  cursor: pointer;
+  bottom: 33%;
+  left: 60%;
+  cursor: pointer;
+  z-index: 999;
+}
+
+.hamburger span {
+  position: absolute;
+  left: 0;
+  top: 0px;
+  width: 100%;
+  height: 2px;
+  background-color: orangered;
+  transform: rotate(45deg);
+}
+
+.hamburger span::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0px;
+  width: 100%;
+  height: 2px;
+  background-color: orangered;
+  transform: rotate(-90deg);
+}
+
+.light-box .img-btn {
+  pointer-events: none;
+}
+
+.light-box .btn-control {
+  display: block;
+}
+
+.cart {
+  position: absolute;
+  top: -2rem;
+  right: 1rem;
+  width: 24rem;
+  height: 250px;
+  border: 1px solid slategray;
+  border-radius: 6px;
+  background-color: white;
+  z-index: 999;
+}
+
+@media (max-width:35em) {
+  .btn-control {
+    display: block;
+  }
+
+  .ham-btn {
+    display: block;
+  }
+
+  nav {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 70vw;
+    background: white;
+    z-index: 998;
+    transition: .3s;
+  }
+
+  nav.open {
+    left: 0;
+  }
+
+  nav.close {
+    left: -100vw;
+  }
+
+  .navbar {
+    gap: 2rem;
+    flex-direction: column;
+    margin-top: 5rem;
+    padding-left: 2rem;
+  }
+
+
+  .cart {
+    width: 96%;
+    top: 0;
+    right: 2%;
+  }
+}
